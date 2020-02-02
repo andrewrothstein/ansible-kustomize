@@ -1,0 +1,10 @@
+---
+# vars file for kustomize
+kustomize_platform: '{{ kustomize_os }}_{{ kustomize_arch }}'
+kustomize_tgz: kustomize_{{ kustomize_ver }}_{{ kustomize_platform }}.tar.gz
+kustomize_url: '{{ kustomize_mirror }}/kustomize%2F{{ kustomize_ver }}/{{ kustomize_tgz }}'
+kustomize_checksum: '{{ kustomize_checksums[kustomize_ver][kustomize_platform] }}'
+
+kustomize_install_dir: '{{ kustomize_parent_install_dir }}/kustomize-{{ kustomize_ver }}'
+kustomize_exe: '{{ kustomize_install_dir }}/kustomize'
+kustomize_link: '{{ kustomize_parent_install_dir }}/bin/kustomize'

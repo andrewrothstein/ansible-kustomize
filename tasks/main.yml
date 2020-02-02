@@ -1,0 +1,56 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: check for install...
+  become: yes
+  stat:
+    path: '{{ kustomize_install_dir }}'
+  changed_when: False
+  register: kustomize_binary
+- when: not kustomize_binary.stat.exists
+  block:
+    - name: downloading {{ kustomize_url }}...
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{ kustomize_url }}'
+        dest: /tmp/{{ kustomize_tgz }}
+        checksum: '{{ kustomize_checksum }}'
+        mode: 0644
+    - name: mkdir {{ kustomize_install_dir }}...
+      become: yes
+      become_user: root
+      file:
+        path: '{{ kustomize_install_dir }}'
+        state: directory
+        mode: 0755
+    - name: unarchive /tmp/{{ kustomize_tgz }}...
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: /tmp/{{ kustomize_tgz }}
+        dest: '{{ kustomize_install_dir }}'
+        creates: '{{ kustomize_exe }}'
+  always:
+    - name: cleanup...
+      become: yes
+      become_user: root
+      file:
+        path: /tmp/{{ kustomize_tgz }}
+        state: absent
+- name: link...
+  become: yes
+  become_user: root
+  file:
+    src: '{{ kustomize_exe }}'
+    dest: '{{ kustomize_link }}'
+    state: link
