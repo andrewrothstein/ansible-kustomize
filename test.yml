@@ -2,3 +2,8 @@
 - hosts: all
   roles:
   - role: '{{ playbook_dir }}'
+  tasks:
+  - command: /usr/local/bin/kustomize version
+    register: kustomize_test_output
+  - debug:
+      msg: '{{ kustomize_test_output.stdout }}'
