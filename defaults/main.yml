@@ -1,6 +1,6 @@
 ---
 # defaults file for kustomize
-kustomize_ver: v3.8.1
+kustomize_ver: v3.8.7
 kustomize_mirror: https://github.com/kubernetes-sigs/kustomize/releases/download
 kustomize_os: linux
 kustomize_arch: amd64
@@ -57,3 +57,11 @@ kustomize_checksums:
     linux_amd64: sha256:9d5b68f881ba89146678a0399469db24670cba4813e0299b47cb39a240006f37
     # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.8.1/kustomize_v3.8.1_windows_amd64.tar.gz
     windows_amd64: sha256:b7492203bd9e72ddef149abb143dc3317f9467e54f083807d9975823d5c485a9
+  # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.8.7/checksums.txt
+  v3.8.7:
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.8.7/kustomize_v3.8.7_darwin_amd64.tar.gz
+    darwin_amd64: sha256:0169378c66ae194243b1abd444beb8bcb8ef6c40be315081d72cd9addceea691
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.8.7/kustomize_v3.8.7_linux_amd64.tar.gz
+    linux_amd64: sha256:4a3372d7bfdffe2eaf729e77f88bc94ce37dc84de55616bfe90aac089bf6fd02
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.8.7/kustomize_v3.8.7_windows_amd64.tar.gz
+    windows_amd64: sha256:56ff670edd84cb100117472b0196ad201d63a77ad0c90c4a6927ea8168d815bf

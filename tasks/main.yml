@@ -9,7 +9,7 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for install...
+- name: check for install in {{ kustomize_install_dir }}
   become: yes
   stat:
     path: '{{ kustomize_install_dir }}'
@@ -22,7 +22,7 @@
       become_user: root
       get_url:
         url: '{{ kustomize_url }}'
-        dest: /tmp/{{ kustomize_tgz }}
+        dest: '{{ kustomize_tmp_tgz }}'
         checksum: '{{ kustomize_checksum }}'
         mode: 0644
     - name: mkdir {{ kustomize_install_dir }}...
@@ -32,12 +32,12 @@
         path: '{{ kustomize_install_dir }}'
         state: directory
         mode: 0755
-    - name: unarchive /tmp/{{ kustomize_tgz }}...
+    - name: unarchive {{ kustomize_tmp_tgz }}...
       become: yes
       become_user: root
       unarchive:
         remote_src: yes
-        src: /tmp/{{ kustomize_tgz }}
+        src: '{{ kustomize_tmp_tgz }}'
         dest: '{{ kustomize_install_dir }}'
         creates: '{{ kustomize_exe }}'
   always:
@@ -45,9 +45,9 @@
       become: yes
       become_user: root
       file:
-        path: /tmp/{{ kustomize_tgz }}
+        path: '{{ kustomize_tmp_tgz }}'
         state: absent
-- name: link...
+- name: linking {{ kustomize_link }} to {{ kustomize_exe }}
   become: yes
   become_user: root
   file:
