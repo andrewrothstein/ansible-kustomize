@@ -1,6 +1,6 @@
 andrewrothstein.kustomize
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-kustomize.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-kustomize)
+![Build Status](https://github.com/andrewrothstein/ansible-kustomize/actions/workflows/build.yml/badge.svg)
 
 Installs [kustomize](https://github.com/kubernetes-sigs/kustomize)
 
