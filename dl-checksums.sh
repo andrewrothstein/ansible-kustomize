@@ -31,8 +31,7 @@ dl_ver() {
 
     dl $ver $lchecksums darwin amd64
     dl $ver $lchecksums linux amd64
-    dl $ver $lchecksums windows amd64
 }
 
 # available version: curl -s https://api.github.com/repos/kubernetes-sigs/kustomize/releases | fgrep tarball/kustomize
-dl_ver ${1:-v4.1.3}
+dl_ver ${1:-v4.2.0}
