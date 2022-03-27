@@ -1,6 +1,6 @@
 ---
 # defaults file for kustomize
-kustomize_ver: v4.4.1
+kustomize_ver: v4.5.3
 kustomize_mirror: https://github.com/kubernetes-sigs/kustomize/releases/download
 kustomize_os: linux
 kustomize_arch: amd64
@@ -161,3 +161,21 @@ kustomize_checksums:
     darwin_amd64: sha256:1b0eba143cd684f98341d58100c17a2dfb9658375302fe38d725752ea92012ac
     # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.4.1/kustomize_v4.4.1_linux_amd64.tar.gz
     linux_amd64: sha256:2d5927efec40ba32a121c49f6df9955b8b8a296ef1dec4515a46fc84df158798
+  # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.1/checksums.txt
+  v4.5.1:
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.1/kustomize_v4.5.1_darwin_amd64.tar.gz
+    darwin_amd64: sha256:427d1d32bdde47f3b36a848253d1c936f623ffc4dbe4137c1deadd2c099a9000
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.1/kustomize_v4.5.1_linux_amd64.tar.gz
+    linux_amd64: sha256:cc26e18e814fd162dacd5e2a1357aa133fb91589e23a15ccc8b7c163fd259c54
+  # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.2/checksums.txt
+  v4.5.2:
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.2/kustomize_v4.5.2_darwin_amd64.tar.gz
+    darwin_amd64: sha256:4b7dac92c8f2dd383651276c78d9e6d28031f50f3711cd987347a08edf0c8335
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.2/kustomize_v4.5.2_linux_amd64.tar.gz
+    linux_amd64: sha256:c4215332da8da16ddeb88e218d8dceb76c85b366a5c58d012bc5ece904bf2fd0
+  # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.3/checksums.txt
+  v4.5.3:
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.3/kustomize_v4.5.3_darwin_amd64.tar.gz
+    darwin_amd64: sha256:b0a6b0568273d466abd7cd535c556e44aa9ff5f54c07e86ed9f3016b416de992
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.3/kustomize_v4.5.3_linux_amd64.tar.gz
+    linux_amd64: sha256:e4dc2f795235b03a2e6b12c3863c44abe81338c5c0054b29baf27dcc734ae693
