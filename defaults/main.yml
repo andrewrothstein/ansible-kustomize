@@ -1,6 +1,6 @@
 ---
 # defaults file for kustomize
-kustomize_ver: v4.5.5
+kustomize_ver: v4.5.6
 kustomize_mirror: https://github.com/kubernetes-sigs/kustomize/releases/download
 kustomize_os: linux
 kustomize_arch: amd64
@@ -203,3 +203,21 @@ kustomize_checksums:
     windows_amd64: sha256:a72d7e5bbce1388c829d17208c34bf11df69215e7e496e05d8156a0d44b7de3d
     # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.5/kustomize_v4.5.5_windows_arm64.tar.gz
     windows_arm64: sha256:9fe291f462f7f13092fe12a4a75d21ffd00c1d4edd3d304a7efc6cc27c76804c
+  # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.6/checksums.txt
+  v4.5.6:
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.6/kustomize_v4.5.6_darwin_amd64.tar.gz
+    darwin_amd64: sha256:76fbaad14142bd532d6a6a7912c6b1e48e427fb20659f172ffd4232d1d430b78
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.6/kustomize_v4.5.6_darwin_arm64.tar.gz
+    darwin_arm64: sha256:30ddc0608db8152282a9e214b7c431d9d3932a02d97217ff55f5b5e3d6a6d5a9
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.6/kustomize_v4.5.6_linux_amd64.tar.gz
+    linux_amd64: sha256:6802d54917eb5887f9c71031c59e6845c1a490c13881b050ea6959b714b4a432
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.6/kustomize_v4.5.6_linux_arm64.tar.gz
+    linux_arm64: sha256:3b66709c7692c5ccfdcb2f4dd383e7aa622b451b046f2197b59033f16457b3b3
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.6/kustomize_v4.5.6_linux_ppc64le.tar.gz
+    linux_ppc64le: sha256:dc817311b206214709541ef94e019abff644af33029ccef25edf141f99a543cd
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.6/kustomize_v4.5.6_linux_s390x.tar.gz
+    linux_s390x: sha256:82088fc1cfc052df2f86691a0de4a31a23df9df8542f224c17fd5602d2fa633c
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.6/kustomize_v4.5.6_windows_amd64.tar.gz
+    windows_amd64: sha256:4974359500e8315e5e00be6cc65383872723313f96e2cf9f30971d087a2877a5
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.6/kustomize_v4.5.6_windows_arm64.tar.gz
+    windows_arm64: sha256:f8f3e54e6cf02cf17d7045892a7d8de917427dde5a0857472349f28438f26b58
