@@ -1,5 +1,7 @@
 ---
 # vars file for kustomize
+kustomize_os: '{{ ansible_system | lower }}'
+kustomize_arch: '{{ kustomize_arch_map[ansible_architecture] }}'
 kustomize_platform: '{{ kustomize_os }}_{{ kustomize_arch }}'
 kustomize_tgz: kustomize_{{ kustomize_ver }}_{{ kustomize_platform }}.tar.gz
 kustomize_tmp_tgz: /tmp/{{ kustomize_tgz }}

@@ -2,8 +2,10 @@
 # defaults file for kustomize
 kustomize_ver: v5.0.0
 kustomize_mirror: https://github.com/kubernetes-sigs/kustomize/releases/download
-kustomize_os: linux
-kustomize_arch: amd64
+kustomize_arch_map:
+  aarch64: arm64
+  arm64: arm64
+  x86_64: amd64
 kustomize_parent_install_dir: /usr/local
 
 kustomize_checksums:
