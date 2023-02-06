@@ -40,4 +40,4 @@ dl_ver() {
 }
 
 # available version: curl -s https://api.github.com/repos/kubernetes-sigs/kustomize/releases | fgrep tarball/kustomize
-dl_ver ${1:-v4.5.6}
+dl_ver ${1:-v5.0.0}

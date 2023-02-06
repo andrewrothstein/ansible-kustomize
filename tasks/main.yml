@@ -1,4 +1,6 @@
 ---
+- include_role:
+    name: andrewrothstein.unarchive-deps
 - name: resolve platform specific vars
   include_vars: '{{ item }}'
   with_first_found:
@@ -10,15 +12,15 @@
       paths:
         - '{{ role_path }}/vars'
 - name: check for install in {{ kustomize_install_dir }}
-  become: yes
+  become: true
   stat:
     path: '{{ kustomize_install_dir }}'
-  changed_when: False
+  changed_when: false
   register: kustomize_binary
 - when: not kustomize_binary.stat.exists
   block:
     - name: downloading {{ kustomize_url }}...
-      become: yes
+      become: true
       become_user: root
       get_url:
         url: '{{ kustomize_url }}'
@@ -26,29 +28,29 @@
         checksum: '{{ kustomize_checksum }}'
         mode: 0644
     - name: mkdir {{ kustomize_install_dir }}...
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ kustomize_install_dir }}'
         state: directory
         mode: 0755
     - name: unarchive {{ kustomize_tmp_tgz }}...
-      become: yes
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: '{{ kustomize_tmp_tgz }}'
         dest: '{{ kustomize_install_dir }}'
         creates: '{{ kustomize_exe }}'
   always:
     - name: cleanup...
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ kustomize_tmp_tgz }}'
         state: absent
 - name: linking {{ kustomize_link }} to {{ kustomize_exe }}
-  become: yes
+  become: true
   become_user: root
   file:
     src: '{{ kustomize_exe }}'
