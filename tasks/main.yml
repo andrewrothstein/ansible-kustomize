@@ -1,7 +1,8 @@
 ---
-- include_role:
-    name: andrewrothstein.unarchive-deps
-- name: resolve platform specific vars
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
+    name: andrewrothstein.unarchivedeps
+- name: Resolve platform specific vars
   include_vars: '{{ item }}'
   with_first_found:
     - files:
@@ -11,48 +12,49 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for install in {{ kustomize_install_dir }}
+- name: Check for install at {{ kustomize_exe }}
   become: true
-  stat:
-    path: '{{ kustomize_install_dir }}'
+  ansible.builtin.stat:
+    path: '{{ kustomize_exe }}'
   changed_when: false
   register: kustomize_binary
-- when: not kustomize_binary.stat.exists
+- name: Downloading and unarchiving kustomize
+  when: not kustomize_binary.stat.exists
   block:
-    - name: downloading {{ kustomize_url }}...
+    - name: Downloading {{ kustomize_url }}...
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ kustomize_url }}'
         dest: '{{ kustomize_tmp_tgz }}'
         checksum: '{{ kustomize_checksum }}'
-        mode: 0644
-    - name: mkdir {{ kustomize_install_dir }}...
+        mode: '644'
+    - name: Mkdir {{ kustomize_install_dir }}...
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ kustomize_install_dir }}'
         state: directory
-        mode: 0755
-    - name: unarchive {{ kustomize_tmp_tgz }}...
+        mode: '755'
+    - name: Unarchive {{ kustomize_tmp_tgz }}...
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ kustomize_tmp_tgz }}'
         dest: '{{ kustomize_install_dir }}'
         creates: '{{ kustomize_exe }}'
   always:
-    - name: cleanup...
+    - name: Cleanup...
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ kustomize_tmp_tgz }}'
         state: absent
-- name: linking {{ kustomize_link }} to {{ kustomize_exe }}
+- name: Linking {{ kustomize_link }} to {{ kustomize_exe }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ kustomize_exe }}'
     dest: '{{ kustomize_link }}'
     state: link
