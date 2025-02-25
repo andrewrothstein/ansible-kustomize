@@ -1,6 +1,6 @@
 ---
 # defaults file for kustomize
-kustomize_ver: v5.4.2
+kustomize_ver: v5.5.0
 kustomize_mirror: https://github.com/kubernetes-sigs/kustomize/releases/download
 kustomize_arch_map:
   aarch64: arm64
@@ -349,3 +349,17 @@ kustomize_checksums:
     linux_ppc64le: sha256:be71e5cb95362a111dcee315ee5fb50ec5faac0446571ecc84ba4aa6e1298feb
     # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.2/kustomize_v5.4.2_linux_s390x.tar.gz
     linux_s390x: sha256:3724d3a711a6f06650ef31e9d6a7c8aaaed0727183d6f61b2103ffc717af68a1
+  # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.5.0/checksums.txt
+  v5.5.0:
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.5.0/kustomize_v5.5.0_darwin_amd64.tar.gz
+    darwin_amd64: sha256:874224e75229821b1e571aefa45703789b77336302a34692eac65adbe0dc1cee
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.5.0/kustomize_v5.5.0_darwin_arm64.tar.gz
+    darwin_arm64: sha256:5baa407bdaee51b97626ef1fca3292e1a1c846357d3028db826057ecceed7178
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.5.0/kustomize_v5.5.0_linux_amd64.tar.gz
+    linux_amd64: sha256:6703a3a70a0c47cf0b37694030b54f1175a9dfeb17b3818b623ed58b9dbc2a77
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.5.0/kustomize_v5.5.0_linux_arm64.tar.gz
+    linux_arm64: sha256:b4170d1acb8cfacace9f72884bef957ff56efdcd4813b66e7604aabc8b57e93d
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.5.0/kustomize_v5.5.0_linux_ppc64le.tar.gz
+    linux_ppc64le: sha256:dd277cdd596a77bb89cddf9c4d2056cd60dfdaabe3e9d6b48d0b1c193e3939af
+    # https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.5.0/kustomize_v5.5.0_linux_s390x.tar.gz
+    linux_s390x: sha256:37dcd2429ef93886319b39671071b2e1c5307993cdb6a5c097cfefc97177d296
